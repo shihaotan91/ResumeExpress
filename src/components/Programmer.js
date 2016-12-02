@@ -3,6 +3,8 @@ import React from 'react';
 import ProgrammerForm from './ProgrammerForm'
 import base from '../base'
 
+import MyResumes from './MyResumes'
+
 class Programmer extends React.Component {
   constructor() {
     super()
@@ -44,6 +46,7 @@ class Programmer extends React.Component {
       <div>
       <ProgrammerForm
       addResume={this.addResume} updateResume={this.updateResume} resumes={this.state.resumes}/>
+      <MyResumes resumes={this.state.resumes}/>
       </div>
     )
   }

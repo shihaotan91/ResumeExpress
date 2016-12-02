@@ -28,6 +28,7 @@ class ProgrammerForm extends React.Component {
       job2: this.job2.value,
       }
       this.props.addResume(resume)
+      this.context.router.transitionTo(`/`)
     }
 
  //  handleChange(e, key) {
@@ -59,15 +60,15 @@ class ProgrammerForm extends React.Component {
         onSubmit={(e) => this.createResume(e)}>
 
         <input ref={(input) => this.name = input}
-        onChange={this.handleResumeInput} value={this.state.resumeInputName}
+        onChange={this.handleChange.bind(this, 'resumeInputName')} value={this.state.resumeInputName}
         type="text" placeholder="Your Name"/>
 
         <input ref={(input) => this.job1 = input}
-        onChange={this.handleResumeInput} value={this.state.resumeInputJob1}
+        onChange={this.handleChange.bind(this, 'resumeInputJob1')} value={this.state.resumeInputJob1}
         type="text" placeholder="Your First Job"/>
 
         <input ref={(input) => this.job2 = input}
-        onChange={this.handleResumeInput} value={this.state.resumeInputJob2}
+        onChange={this.handleChange.bind(this, 'resumeInputJob2')} value={this.state.resumeInputJob2}
         type="text" placeholder="Your Second Job"/>
 
         <button type="submit">Submit Resume</button>
@@ -80,6 +81,15 @@ class ProgrammerForm extends React.Component {
       </div>
     )
   }
+  handleChange(input, e) {
+    var change = {};
+    change[input] = e.target.value;
+    this.setState(change);
+  }
+}
+
+ProgrammerForm.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default ProgrammerForm

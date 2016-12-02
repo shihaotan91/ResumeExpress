@@ -25,7 +25,7 @@ module.exports = {
   },
   output: {
     path: __dirname + '/src/',
-    filename: 'scripts.min.js'
+    filename: 'index.js'
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
