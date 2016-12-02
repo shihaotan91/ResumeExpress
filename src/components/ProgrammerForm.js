@@ -27,8 +27,9 @@ class ProgrammerForm extends React.Component {
       job1: this.job1.value,
       job2: this.job2.value,
       }
+
       this.props.addResume(resume)
-      this.context.router.transitionTo(`/`)
+      // this.context.router.transitionTo(`/`)
     }
 
  //  handleChange(e, key) {
@@ -78,7 +79,7 @@ class ProgrammerForm extends React.Component {
         name={this.state.resumeInputName}
         job1={this.state.resumeInputJob1}
         job2={this.state.resumeInputJob2}/>
-      </div>
+        </div>
     )
   }
   handleChange(input, e) {

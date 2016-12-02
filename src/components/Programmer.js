@@ -3,36 +3,33 @@ import React from 'react';
 import ProgrammerForm from './ProgrammerForm'
 import base from '../base'
 
-import MyResumes from './MyResumes'
-
 class Programmer extends React.Component {
+
   constructor() {
     super()
 
-    this.state = {
-      resumes: {},
-    }
-    this.addResume = this.addResume.bind(this)
-    // this.updateResume = this.updateResume.bind(this)
+    this.addResume = this.addResume.bind(this);
   }
 
   componentWillMount(){
-     this.ref = base.syncState(`${this.props.params.username}/programmer`
+     this.ref = base.syncState(`${this.props.username}/programmer`
      , {
        context: this,
        state: 'resumes'
      })
   };
 
-  componentWillUnMount() {
+  componentWillUnmount() {
     base.removeBinding(this.ref)
   }
 
   addResume(resume) {
-    const resumes = {...this.state.resumes}
+    const resumes = {...this.props.resumes}
+    console.log(resumes)
+    console.log(resume)
     const timestamp = Date.now()
-    resumes[`resume=${timestamp}`] = resume
-    this.setState({resumes})
+    resumes[`resume-${timestamp}`] = resume
+    this.props.addResumeToState(resumes)
   }
 
   // updateResume(key, updatedResume) {
@@ -41,12 +38,12 @@ class Programmer extends React.Component {
   //   this.setState({resumes})
   // }
 
+
   render() {
     return (
       <div>
       <ProgrammerForm
-      addResume={this.addResume} updateResume={this.updateResume} resumes={this.state.resumes}/>
-      <MyResumes resumes={this.state.resumes}/>
+      addResume={this.addResume} resumes={this.props.resumes}/>
       </div>
     )
   }

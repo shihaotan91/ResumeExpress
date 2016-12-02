@@ -9,7 +9,6 @@ class Home extends React.Component {
 
   goToResume(event) {
     event.preventDefault()
-
     const resumeType = this.resumeInput.value
     console.log(`going to ${resumeType}`)
     this.context.router.transitionTo(`/${this.props.params.username}/${resumeType}`)

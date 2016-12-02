@@ -9,15 +9,15 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Programmer from './components/Programmer'
 import NotFound from './components/NotFound'
+import MyResumes from './components/MyResumes'
 //
-
 class LoginWrapper extends React.Component {
 
   constructor() {
     super()
 
     this.state = {
-      uid: null
+      uid: null,
     }
 
     this.renderLogin = this.renderLogin.bind(this);
@@ -94,13 +94,48 @@ class LoginWrapper extends React.Component {
     router: React.PropTypes.object
   }
 
+  /////////////////////////////////////////////
+  /////////////////////////////////////////////
+  ///////// RESUMEWRAPPER STARTS HERE /////////
+  /////////////////////////////////////////////
+  /////////////////////////////////////////////
+
+  class ResumeWrapper extends React.Component {
+    constructor() {
+      super()
+
+      this.state = {
+        resumes: {}
+      }
+      this.addResumeToState = this.addResumeToState.bind(this)
+    }
+
+    addResumeToState(resumes){
+      this.setState({resumes})
+    }
+
+    render() {
+        return (
+          <Programmer
+          resumes={this.state.resumes} username={this.props.params.username} addResumeToState={this.addResumeToState}/>
+          );
+        }
+    }
+
+ResumeWrapper.contextTypes = {
+  router: React.PropTypes.object
+}
+
+
+
 const Root = () => {
   return (
     <BrowserRouter>
       <div>
         <Match exactly pattern='/' component={LoginWrapper}/>
         <Match exactly pattern='/:username' component={Home}/>
-        <Match pattern='/:username/programmer' component={Programmer} />
+        <Match pattern='/:username/programmer' component={ResumeWrapper} />
+        <Match pattern='/:username/myresumes' component={MyResumes} />
         <Miss component={NotFound} />
       </div>
     </BrowserRouter>
