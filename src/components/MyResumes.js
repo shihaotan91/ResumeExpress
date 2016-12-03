@@ -5,10 +5,11 @@ class MyResumes extends React.Component {
 
 
   render() {
+    console.log(`${this.props.resumes}`)
     return (
       <ul>
       <li>
-      <p>resume</p>
+      <p>blahblah</p>
       </li>
       </ul>
     )

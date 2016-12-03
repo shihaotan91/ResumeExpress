@@ -12,6 +12,7 @@ class Programmer extends React.Component {
   }
 
   componentWillMount(){
+    console.log(`${this.props.resumes}`)
      this.ref = base.syncState(`${this.props.username}/programmer`
      , {
        context: this,

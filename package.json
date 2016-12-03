@@ -19,6 +19,7 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
+    "css-to-pdf": "git+https://github.com/JoshuaCWebDeveloper/css-to-pdf.git",
     "history": "4.2.0",
     "re-base": "2.2.0",
     "react": "^0.14.6",

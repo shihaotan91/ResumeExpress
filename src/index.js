@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
 
-import {BrowserRouter, Match, Miss} from 'react-router'
+import {BrowserRouter, Match, Miss, Push} from 'react-router'
 import base from './base'
 
 import Login from './components/Login';
@@ -105,13 +105,22 @@ class LoginWrapper extends React.Component {
       super()
 
       this.state = {
-        resumes: {}
+        resumes: "hello"
       }
       this.addResumeToState = this.addResumeToState.bind(this)
     }
 
     addResumeToState(resumes){
       this.setState({resumes})
+    }
+
+    pushStateToMyResume(){
+      this.context.router.push({
+        pathname: '/:username/myresumes',
+        state: {
+          resumes: this.state.resumes
+        }
+      })
     }
 
     render() {
@@ -142,4 +151,4 @@ const Root = () => {
   )
 }
 
-ReactDOM.render( <Root />, document.getElementById('root') );
+ReactDOM.render( <Root/>, document.getElementById('root') );
