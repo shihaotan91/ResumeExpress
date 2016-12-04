@@ -15,8 +15,9 @@ class ProgrammerResume extends React.Component {
 
 
   render() {
-    const click="return xepOnline.Formatter.Format('Resume', {render:'download'})";
-    document.getElementById('buttons').append('<button onclick="'+ click +'">PDF</button>');
+    // const click="return xepOnline.Formatter.Format('Resume', {render:'download'})";
+    // document.getElementById('buttons').append('<button onclick="'+ click +'">PDF</button>');
+    // <button onClick={click}>Click this</button>
     const details = this.props
     return (
       <div>
@@ -26,7 +27,6 @@ class ProgrammerResume extends React.Component {
           <h2>hello {details.job2}</h2>
         </div>
 
-        <button onClick={click}>Click this</button>
 
       </div>
     )

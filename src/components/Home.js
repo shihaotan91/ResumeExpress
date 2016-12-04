@@ -1,10 +1,13 @@
 import React from 'react';
 import '../css/Home.css';
 
+import Bootstrap from 'react-bootstrap'
+
 class Home extends React.Component {
   constructor() {
   super();
   this.goToResume = this.goToResume.bind(this);
+  this.goToProgrammerResume = this.goToProgrammerResume.bind(this);
 }
 
   goToResume(event) {
@@ -14,20 +17,21 @@ class Home extends React.Component {
     this.context.router.transitionTo(`/${this.props.params.username}/${resumeType}`)
     }
 
+    goToProgrammerResume() {
+    this.context.router.transitionTo(`/${this.props.params.username}/programmer`)
+    }
+
   render() {
     return (
       <div className="Home">
-          <h2>Create your resume</h2>
-        <p>
-          To get started, please select the type of resume you want tp create.
-        </p>
-        <form className="resume-selector" onSubmit={this.goToResume}>
-        <select ref={(input)=> {this.resumeInput = input}}>
-          <option value="programmer">Programmer</option>
-          <option value="designer">Designer</option>
-        </select>
-        <button type="submit">Create Resume</button>
-        </form>
+      <h3 className="areYou">Are you a</h3>
+        <h2 className="tellMe">Tell me<br/>more about<br/> yourself...</h2>
+        <a href="#" onClick={this.goToProgrammerResume}>
+        <img className="programLogo" src="http://i.imgur.com/n5oyQey.png"/>
+        </a>
+        <h3 className="or">or</h3>
+        <img className="designLogo" src="http://i.imgur.com/6uASbC1.png"/>
+        <h5 className="shy">Don't be shy. Click on it.</h5>
       </div>
     );
   }
