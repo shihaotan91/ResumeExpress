@@ -18,8 +18,7 @@ class Login extends React.Component {
   renderLogin() {
     return (
     <nav className="login">
-    <p>Sign in to manage you store's inventory</p>
-    <button className="facebook" onClick={() => this.authenticate('facebook')}>Login with face book</button>
+    <button className="facebook" onClick={() => this.authenticate('facebook')}>Login with facebook</button>
     </nav>
     )
   }

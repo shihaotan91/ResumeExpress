@@ -1,6 +1,8 @@
 import React from 'react';
 import base from '../base'
 
+import '../css/Login.css';
+
 class Login extends React.Component {
 
   constructor() {
@@ -14,33 +16,32 @@ class Login extends React.Component {
   }
 
   render() {
-    const logout = <button onClick={this.props.logout}>Log out!</button>
-    const createButton = <button onClick={this.createResume}>Create Resume</button>
+    const logout = <button className="logout" onClick={this.props.logout}>Logout</button>
+    const createButton = <button className="createResumeButton" onClick={this.createResume}>Create Resume</button>
 
     // check if any one is logged in
     if(!this.props.uid) {
       return (
-        <div>
-        {this.props.renderLogin()}
+        <div className="login-page">
+          <img className="logo" src="http://i.imgur.com/4chEImd.png"/>
+          <h4 className="hard">We know it's hard</h4>
+          <h4 className="easy">So we make it <span className="easyword">easy</span></h4>
+          {this.props.renderLogin()}
         </div>
       )
     }
 
     if(this.props.uid) {
       return (
-        <div>
-        {logout}
+        <div className="login-page">
+        <img className="logo" src="http://i.imgur.com/4chEImd.png"/>
+        <h4 className="hard">We know it's hard</h4>
+        <h4 className="easy">So we make it <span className="easyword">easy</span></h4>
         {createButton}
+        {logout}
         </div>
       )
     }
-
-    return(
-      <div>
-        <h1>Login Page</h1>
-      </div>
-    )
-
   }
 }
 

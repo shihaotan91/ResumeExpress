@@ -50,8 +50,7 @@ class LoginWrapper extends React.Component {
   renderLogin() {
     return (
     <nav className="login">
-    <p>Sign in to manage you store's inventory</p>
-    <button className="facebook" onClick={() => this.authenticate('facebook')}>Login with facebook</button>
+    <button className="facebook" onClick={() => this.authenticate('facebook')}>Login with Facebook</button>
     </nav>
     )
   }
