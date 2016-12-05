@@ -54,31 +54,38 @@ class ProgrammerForm extends React.Component {
   render(key) {
     const resume = this.props.resumes[key]
     return (
-      <div className="resumeForm1" key={key}>
-        <form
-        ref={(input) => this.programmerForm = input} className="programmer-form"
-        onChange={this.handleChange}
-        onSubmit={(e) => this.createResume(e)}>
+      <div>
+        <div className="col-md-4" id="resumeFormMain">
+          <div className="resumeForm1" key={key}>
+            <form
+            ref={(input) => this.programmerForm = input} className="programmer-form"
+            onChange={this.handleChange}
+            onSubmit={(e) => this.createResume(e)}>
 
-        <input ref={(input) => this.name = input}
-        onChange={this.handleChange.bind(this, 'resumeInputName')} value={this.state.resumeInputName}
-        type="text" placeholder="Your Name"/>
+            <input ref={(input) => this.name = input}
+            onChange={this.handleChange.bind(this, 'resumeInputName')} value={this.state.resumeInputName}
+            type="text" placeholder="Your Name"/>
 
-        <input ref={(input) => this.job1 = input}
-        onChange={this.handleChange.bind(this, 'resumeInputJob1')} value={this.state.resumeInputJob1}
-        type="text" placeholder="Your First Job"/>
+            <input ref={(input) => this.job1 = input}
+            onChange={this.handleChange.bind(this, 'resumeInputJob1')} value={this.state.resumeInputJob1}
+            type="text" placeholder="Your First Job"/>
 
-        <input ref={(input) => this.job2 = input}
-        onChange={this.handleChange.bind(this, 'resumeInputJob2')} value={this.state.resumeInputJob2}
-        type="text" placeholder="Your Second Job"/>
+            <input ref={(input) => this.job2 = input}
+            onChange={this.handleChange.bind(this, 'resumeInputJob2')} value={this.state.resumeInputJob2}
+            type="text" placeholder="Your Second Job"/>
 
-        <button type="submit">Submit Resume</button>
-        </form>
+            <button type="submit">Submit Resume</button>
+            </form>
+          </div>
 
-        <ProgrammerResume
-        name={this.state.resumeInputName}
-        job1={this.state.resumeInputJob1}
-        job2={this.state.resumeInputJob2}/>
+        </div>
+
+          <div>
+            <ProgrammerResume
+            name={this.state.resumeInputName}
+            job1={this.state.resumeInputJob1}
+            job2={this.state.resumeInputJob2}/>
+          </div>
         </div>
     )
   }

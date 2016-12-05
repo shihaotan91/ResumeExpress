@@ -1,0 +1,11 @@
+.facebook {
+  background-color: rgba(59, 89, 152, 0.8);
+  border-color: white;
+  margin-left: 160px;
+  margin-top: 50px;
+  height: 40px;
+  width: 300px;
+  border-radius: 5px;
+  color: white;
+  font-family: inherit;
+}

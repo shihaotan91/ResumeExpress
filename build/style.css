@@ -1,0 +1,53 @@
+h1 {
+  color: red;
+}
+
+#test {
+  background-image: url("http://i.imgur.com/7PQXfn6.jpg");
+  background-size: cover;
+  height: 800px;
+}
+
+#one {
+  margin-left: 50px;
+}
+
+#two {
+  margin-left: 100px;
+}
+
+#three {
+  margin-left: 150px;
+}
+
+#four {
+  margin-left: 200px;
+}
+
+#five {
+  margin-left: 250px;
+}
+
+#six {
+  margin-left: 300px;
+}
+
+#seven {
+  margin-left: 350px;
+}
+
+#eight {
+  margin-left: 400px;
+}
+
+#nine {
+  margin-left: 450px;
+}
+
+#ten {
+  margin-left: 500px;
+}
+
+html {
+  background-color: #fcf6c2;
+}
