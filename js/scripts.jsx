@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../src/css/index.css';
 
-import {BrowserRouter, Match, Miss, Push} from 'react-router'
+import {BrowserRouter, HashRouter, Match, Miss, Push} from 'react-router'
 import base from '../build/base'
 
 import Login from '../build/components/Login.jsx';
 import Home from '../build/components/Home.jsx';
 import Programmer from '../build/components/Programmer.jsx'
 import NotFound from '../build/components/NotFound.jsx'
-import MyResumes from '../build/components/MyResumes.jsx'
+import ResumeList from '../build/components/ResumeList.jsx'
+import UpdateResume from '../build/components/UpdateResume.jsx'
 //
 class LoginWrapper extends React.Component {
 
@@ -107,59 +108,93 @@ class LoginWrapper extends React.Component {
         resumes: {}
       }
       this.addResumeToState = this.addResumeToState.bind(this)
+      this.passResumeToResumeList = this.passResumeToResumeList.bind(this)
     }
 
-    // componentWillMount(){
-    //    this.ref = base.syncState(`${this.props.params.username}/programmer`
-    //    , {
-    //      context: this,
-    //      state: 'resumes'
-    //    })
-    // };
-    //
-    // componentWillUnmount() {
-    //   base.removeBinding(this.ref)
-    // }
+    componentWillMount(){
+       this.ref = base.syncState(`${this.props.params.username}/programmer`
+       , {
+         context: this,
+         state: 'resumes'
+       })
+    };
+
+    componentWillUnmount() {
+      base.removeBinding(this.ref)
+    }
 
     addResumeToState(resumes){
       this.setState({resumes})
     }
 
-    pushStateToMyResume(){
-      this.context.router.push({
-        pathname: '/:username/myresumes',
-        state: {
-          resumes: this.state.resumes
-        }
-      })
-    }
-
-    render() {
+      passResumeToResumeList() {
         return (
-          <Programmer
-          resumes={this.state.resumes} addResumeToState={this.addResumeToState}/>
+        <BrowserRouter>
+          <Match pattern="/:username/resumelist" render={() => (
+          <ResumeList resumes={this.state.resumes}/>
+          )}/>
+        </BrowserRouter>
+      )}
+
+        render() {
+          return (
+            <Programmer
+            resumes={this.state.resumes}
+            addResumeToState={this.addResumeToState}
+            />
           );
         }
-    }
+      }
+
+      const Root = () => {
+        return (
+          <HashRouter>
+          <div>
+
+          <Match exactly pattern='/' component={LoginWrapper}/>
+
+          <Match pattern='/:username/programmer' component={ResumeWrapper} />
+
+          <Match exactly pattern='/:username' component={Home}/>
+
+          <Match exactly pattern='/:username/resumelist' component={ResumeList}/>
+
+          <Match pattern='/updateResume' component={UpdateResume}/>
+
+          <Miss component={NotFound} />
+
+          </div>
+          </HashRouter>
+        )
+      }
+
 
 ResumeWrapper.contextTypes = {
   router: React.PropTypes.object
 }
 
-
-// <Match exactly pattern='/' component={LoginWrapper}/>
-
-const Root = () => {
-  return (
-    <BrowserRouter>
-      <div>
-      <Match pattern='/' component={ResumeWrapper} />
-        <Match exactly pattern='/:username' component={Home}/>
-        <Match pattern='/:username/myresumes' component={MyResumes} />
-        <Miss component={NotFound} />
-      </div>
-    </BrowserRouter>
-  )
-}
-
 ReactDOM.render( <Root/>, document.getElementById('root') );
+
+// <Match pattern='/:username/myresumes' component={MyResumes} />
+
+// const Root = () => {
+//   return (
+//     <BrowserRouter>
+//       <div>
+//
+//         <Match exactly pattern='/' component={LoginWrapper}/>
+//
+//         <Match pattern='/:username/programmer' component={ResumeWrapper} />
+//
+//         <Match exactly pattern='/:username' component={Home}/>
+//
+//         <Match pattern="/:username/resumelist" render={() => (
+//         <ResumeList resumes={this.state.resumes}/>
+//         )}/>
+//
+//         <Miss component={NotFound} />
+//
+//       </div>
+//     </BrowserRouter>
+//   )
+// }

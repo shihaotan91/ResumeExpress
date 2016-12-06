@@ -1,6 +1,8 @@
 import React from 'react';
 
 import ProgrammerForm from './ProgrammerForm.jsx'
+import ResumeList from './ResumeList.jsx'
+
 import base from '../base'
 
 import Bootstrap from 'react-bootstrap'
@@ -22,18 +24,12 @@ class Programmer extends React.Component {
     this.props.addResumeToState(resumes)
   }
 
-  // updateResume(key, updatedResume) {
-  //   const resumes = {...this.state.resumes}
-  //   resumes[key] = updatedResume
-  //   this.setState({resumes})
-  // }
-
-
   render() {
+    console.log(this.props.resumes)
     return (
       <div>
-      <ProgrammerForm
-      addResume={this.addResume} resumes={this.props.resumes}/>
+        <ProgrammerForm
+        addResume={this.addResume} resumes={this.props.resumes}/>
       </div>
     )
   }
