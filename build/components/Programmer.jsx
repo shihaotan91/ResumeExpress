@@ -13,19 +13,6 @@ class Programmer extends React.Component {
     this.addResume = this.addResume.bind(this);
   }
 
-  componentWillMount(){
-    console.log(`${this.props.resumes}`)
-     this.ref = base.syncState(`${this.props.username}/programmer`
-     , {
-       context: this,
-       state: 'resumes'
-     })
-  };
-
-  componentWillUnmount() {
-    base.removeBinding(this.ref)
-  }
-
   addResume(resume) {
     const resumes = {...this.props.resumes}
     console.log(resumes)

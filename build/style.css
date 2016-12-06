@@ -3,9 +3,9 @@ h1 {
 }
 
 #test {
-  background-image: url("http://i.imgur.com/7PQXfn6.jpg");
   background-size: cover;
   height: 800px;
+  background-color: #fcf6c2;
 }
 
 #one {

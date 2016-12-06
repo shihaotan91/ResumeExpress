@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../build/css/index.css';
+import '../src/css/index.css';
 
 import {BrowserRouter, Match, Miss, Push} from 'react-router'
 import base from '../build/base'
@@ -104,10 +104,22 @@ class LoginWrapper extends React.Component {
       super()
 
       this.state = {
-        resumes: "hello"
+        resumes: {}
       }
       this.addResumeToState = this.addResumeToState.bind(this)
     }
+
+    // componentWillMount(){
+    //    this.ref = base.syncState(`${this.props.params.username}/programmer`
+    //    , {
+    //      context: this,
+    //      state: 'resumes'
+    //    })
+    // };
+    //
+    // componentWillUnmount() {
+    //   base.removeBinding(this.ref)
+    // }
 
     addResumeToState(resumes){
       this.setState({resumes})
@@ -125,7 +137,7 @@ class LoginWrapper extends React.Component {
     render() {
         return (
           <Programmer
-          resumes={this.state.resumes} username={this.props.params.username} addResumeToState={this.addResumeToState}/>
+          resumes={this.state.resumes} addResumeToState={this.addResumeToState}/>
           );
         }
     }
@@ -135,14 +147,14 @@ ResumeWrapper.contextTypes = {
 }
 
 
+// <Match exactly pattern='/' component={LoginWrapper}/>
 
 const Root = () => {
   return (
     <BrowserRouter>
       <div>
-        <Match exactly pattern='/' component={LoginWrapper}/>
+      <Match pattern='/' component={ResumeWrapper} />
         <Match exactly pattern='/:username' component={Home}/>
-        <Match pattern='/:username/programmer' component={ResumeWrapper} />
         <Match pattern='/:username/myresumes' component={MyResumes} />
         <Miss component={NotFound} />
       </div>

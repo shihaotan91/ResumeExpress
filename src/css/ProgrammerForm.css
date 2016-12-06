@@ -1,4 +1,11 @@
 #resumeFormMain {
   float: right;
   display: inline-block;
+  background-color: #fcf6c2;
+  height: 900px;
+}
+
+input {
+  width: 300px;
+  margin-top: 10px;
 }

@@ -1,5 +1,6 @@
 #resumeTemplateMain {
   float: left;
+  background-color: #fcf6c2
 }
 
 #resumeTemplate {
@@ -7,5 +8,207 @@
   background-size: cover;
   height: 842px;
   width: 595px;
-  margin-left: 100px;
+  margin-left: 70px;
+  margin-top: 20px;
+}
+
+.programmerName {
+  text-align: center;
+  text-decoration: underline;
+  width: 432px;
+  padding-top: 10px;
+  line-height: 20px;
+  display: inline-block;
+}
+
+.programmerTitle {
+  text-align: center;
+  width: 432px;
+  font-style: italic;
+  display: inline-block;
+}
+
+.programmerPitch {
+  text-align: center;
+  margin-left: 90px;
+  width: 250px;
+  height: 100px;
+  padding-top: 15px;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+.programmerMobile {
+ margin-left: 480px;
+ margin-top: -165px;
+ font-size: 13px;
+}
+
+.programmerEmail {
+ margin-left: 480px;
+ margin-top: 16px;
+ font-size: 13px;
+}
+
+.programmerLinkedin {
+ margin-left: 480px;
+ margin-top: 13px;
+ font-size: 13px;
+}
+
+.programmerWebsite {
+ margin-left: 480px;
+ margin-top: 18px;
+ font-size: 13px;
+}
+
+.programmerGithub {
+ margin-left: 480px;
+ margin-top: 18px;
+ font-size: 13px;
+}
+
+.programmerJobTitle1 {
+  margin-top: 30px;
+  margin-left: 26px;
+  display: inline-block;
+}
+
+.programmerJobDate1 {
+  display: inline-block;
+  margin-left: 13px;
+  font-size: 12px;
+}
+
+.programmerJobDesc1 {
+  margin-left: 28px;
+  font-size: 14px;
+  width: 350px;
+  height: 70px;
+  word-wrap: break-word;
+}
+
+.programmerJobTitle2 {
+  margin-top: 10px;
+  margin-left: 26px;
+  display: inline-block;
+}
+
+.programmerJobDate2 {
+  display: inline-block;
+  margin-left: 13px;
+  font-size: 12px;
+}
+
+.programmerJobDesc2 {
+  margin-left: 28px;
+  font-size: 14px;
+  width: 350px;
+  height: 120px;
+  word-wrap: break-word;
+}
+
+.programmerEduSchool1 {
+  margin-top: 22px;
+  margin-left: 26px;
+  display: inline-block;
+}
+
+.programmerEduDate1 {
+  display: inline-block;
+  margin-left: 13px;
+  font-size: 12px;
+}
+
+.programmerEduDesc1 {
+  margin-left: 28px;
+  font-size: 14px;
+  width: 350px;
+  height: 60px;
+  word-wrap: break-word;
+}
+
+.programmerEduSchool2 {
+  margin-top: 10px;
+  margin-left: 26px;
+  display: inline-block;
+}
+
+.programmerEduDate2 {
+  display: inline-block;
+  margin-left: 13px;
+  font-size: 12px;
+}
+
+.programmerEduDesc2 {
+  margin-left: 28px;
+  font-size: 14px;
+  width: 350px;
+  height: 60px;
+  word-wrap: break-word;
+}
+
+.programmerProjectName1 {
+  display: inline-block;
+  margin-left: 450px;
+  margin-top: -480px;
+}
+
+.programmerProjectDesc1 {
+  margin-left: 450px;
+  margin-top: -460px;
+  font-size: 10px;
+  word-wrap: break-word;
+  height: 50px;
+  width: 130px;
+}
+
+.programmerProjectLink1 {
+  margin-left: 450px;
+  font-style: italic;
+  text-decoration: underline;
+  color: rgb(169, 152, 201);
+  font-size: 12px;
+}
+
+.programmerProjectName2 {
+  margin-left: 450px;
+  margin-top: 30px;
+}
+
+.programmerProjectDesc2 {
+  margin-left: 450px;
+  font-size: 10px;
+  word-wrap: break-word;
+  height: 50px;
+  width: 130px;
+}
+
+.programmerProjectLink2 {
+  margin-left: 450px;
+  font-style: italic;
+  text-decoration: underline;
+  color: rgb(169, 152, 201);
+  font-size: 12px;
+}
+
+.programmerProjectName3 {
+  margin-left: 450px;
+  margin-top: 30px;
+}
+
+.programmerProjectDesc3 {
+  margin-left: 450px;
+  font-size: 10px;
+  word-wrap: break-word;
+  height: 50px;
+  width: 130px;
+}
+
+.programmerProjectLink3 {
+  margin-left: 450px;
+  font-style: italic;
+  text-decoration: underline;
+  color: rgb(169, 152, 201);
+  font-size: 12px;
 }
